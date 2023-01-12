@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 
 <html lang="en">
@@ -15,6 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/resources/common-css/util.css">
 		<link rel="stylesheet" type="text/css" href="/resources/common-css/navbar.css">
+		<link rel="stylesheet" type="text/css" href="/resources/common-css/loginPopup.css">
 		
 	
 	</head>
@@ -25,7 +30,7 @@
 
 			<nav class="navbar">
 				<div class="logo">
-					<a href="/index.html"><img src="/resources/images/springdale.png"  height="75px" alt="myFaraday"></a>
+					<a href="/index.php"><img src="/resources/images/springdale.png"  height="75px" alt="myFaraday"></a>
 				</div>
 
 				<div class="name">
@@ -45,15 +50,15 @@
 
 					<div class="menu">
 
-						<li><a href="/index.html">Home</a></li>
+						<li><a href="/index.php">Home</a></li>
 
-						<li><a href="../about/about.html">About</a></li>
+						<li><a href="../about/about.php">About</a></li>
 
 						<li class="services">
 
-							<a href="../services/services.html">Services</a>
+							<a href="../services/services.php">Services</a>
 
-							<ul class="dropdown">
+							<ul class="servicesDropdown">
 
 								<li><a href="/">Dropdown 1 </a></li>
 
@@ -67,17 +72,34 @@
 
 						</li>
 
-						<li><a href="../getquote/getquote.html">Get a Quote</a></li>
+						<li><a href="../getquote/getquote.php">Get a Quote</a></li>
 
-						<li><a href="../contactus/contactus.html">Contact Us</a></li>
-				
-							
-						
-
+						<li><a href="../contactus/contactus.php">Contact Us</a></li>
+						<div class="accBtn">
+							<button class="accountBtn" onclick="openAccountBtnDropdown()"><img src="/resources/images/istockphoto-1161086164-170667a-removebg-preview.png" height = 75px alt="<?php
+																																													if (isset($_SESSION['customerid']) && isset($_SESSION['name'])) {
+																																													echo 'manage your account';
+																																													} else {
+																																													echo 'log in or sign up';
+																																													}
+																																													?>"></button>
+							<ul class="accountBtnDropdown" id="accountBtnDropdownID">
+								<?php
+								if (!empty($_SESSION['customerid'])) {
+									echo '<h2>Welcome back, ' . $_SESSION['name'] . '!</h2>' .
+										 '<li><a href="/">Dropdown 1</a></li> 
+										  <li><a href="/">Dropdown 2</a></li> 
+										  <li><a href="/">Dropdown 3</a></li> 
+										  <li><a href="/resources/php/logout.php">Log Out</a></li>';
+								} else {
+									echo '<li><button class="logInButton" onclick="openLoginPopup()"><b>Log In</b></button></li>
+										  <li><a href="/webpages/signup/signup.php"><b>Sign Up</b></a></li>';
+								}
+								?>
+							</ul>
+						</div>	
 					</div>
-
 				</ul>
-				<button class="accountBtn" onclick="accountBtnPressed()"><img src="/resources/images/istockphoto-1161086164-170667a-removebg-preview.png" height = 75px alt="view account settings"></button>
 			</nav>
 		</div>
 
@@ -90,7 +112,7 @@
 				<input type="email" placeholder="Enter Email Address" name="email" required>
 				<label for="password"><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
-				<a href="../signup/signup.html">Create an account</a>
+				<a href="../signup/signup.php">Create an account</a>
 				<button type="submit" class="submitLogin">Log in</button>
 				
 			</form>

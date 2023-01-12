@@ -1,7 +1,6 @@
 <?php
+session_start();
 include("config.php");
-
-$path = realpath("myFaraday/php/signUpConnect.php");
 
 $firstName = filter_input(INPUT_POST, 'firstName');
 $lastName = filter_input(INPUT_POST, 'lastName');
@@ -17,16 +16,17 @@ if (mysqli_connect_error()) {
 	. mysqli_connect_error());
 } else {
 	$sql = "INSERT INTO customerDetails (firstName, lastName, dateOfBirth, gender, email, mobileNumber, password)  values ('$firstName', '$lastName', '$dateOfBirth', '$gender', '$email', '$mobileNumber', '$hash')";
-	
-	if ($connection->query($sql)){
+
+	if ($connection->query($sql)) {
 		echo "New account has been created successfully.";
 	} else {
 		echo "Error:" . $sql . "<br>" . $connection->error;
 	}
 	$connection->close();
 
-	
 }
+header("location:/webpages/signup/success/signedup.php");
+exit();
 
 
 ?>

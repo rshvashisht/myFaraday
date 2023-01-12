@@ -39,6 +39,7 @@
 
      font-family: 'Kalam', cursive;
      color: snow;
+     font-weight: bolder;
      font-size: 20px;
 
     }
@@ -46,6 +47,7 @@
     .electrotech {
 
      font-family: 'Noto Serif Toto', serif;
+     font-weight: bold;
      color: snow;
      font-size: 30px;
      
@@ -57,10 +59,13 @@
     .menu {
     
      display: flex;
+
+     align-items: center;
     
      gap: 1em;
     
      font-size: 25px;
+     font-weight: bold;
     
     }
     
@@ -132,65 +137,42 @@
     
     }
 
-
-
     
-
-
-    
-    /* APPLYING MEDIA QUERIES */
-    
-    @media (max-width: 768px) {
-    
-    .menu { 
-    
-     display:none;
-    
-     position: absolute;
-    
-     background-color:teal;
-    
-     right: 0;
-
-     left: 0;
-    
-     text-align: center;
-    
-     padding: 16px 0;
-    
-    }
-    
-    .menu li:hover {
-    
+    .accountBtn {
+     border: none;
+     cursor: pointer;
+   }
+   
+   /* The container <div> - needed to position the dropdown content */
+   .accBtn {
+     position: relative;
      display: inline-block;
-    
-     background-color:#4c9e9e;
-    
-     transition: 0.3s ease;
-    
-    }
-    
-    .menu li + li {
-    
-     margin-top: 12px;
-    
-    }
-    
-    
-    .servicesDropdown {
-    
-     left: 50%;
-    
-     top: 30px;
-    
-     transform: translateX(35%);
-    
-    }
-    
-    .servicesDropdown li:hover {
-    
-     background-color: #4c9e9e;
-    
-    }
-    
-    }
+   }
+   
+   /* Dropdown Content (Hidden by Default) */
+   .accountBtnDropdown {
+     display: none;
+     position:fixed;
+     background-color: black;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     right: 10px;
+   }
+   
+   /* Links inside the dropdown */
+   .accountBtnDropdown a, button {
+     background: none!important;
+     width: 100%;
+     /*optional*/
+     color: snow;
+     /*input has OS specific font-family*/
+     cursor: pointer;
+     padding: auto;
+     border: #ffffff;
+   }
+   
+   /* Change color of dropdown links on hover */
+   .accountBtnDropdown a:hover, button:hover {
+    background-color: #4c9e9e;
+  }
+   

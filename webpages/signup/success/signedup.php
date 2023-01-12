@@ -12,7 +12,7 @@ session_start();
 	
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<meta name="description" content="Get a Quote">
+		<meta name="description" content="The Student Council Webpage of Spring Dale Senior School, Amritsar">
 	    <title> myFaraday ElectroTech </title>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -31,7 +31,7 @@ session_start();
 
 			<nav class="navbar">
 				<div class="logo">
-					<a href="/index.php"><img src="/resources/images/springdale.png"  height="75px" alt="myFaraday"></a>
+					<a href="index.php"><img src="/resources/images/springdale.png"  height="75px" alt="myFaraday"></a>
 				</div>
 
 				<div class="name">
@@ -53,11 +53,11 @@ session_start();
 
 						<li><a href="/index.php">Home</a></li>
 
-						<li><a href="../about/about.php">About</a></li>
+						<li><a href="/webpages/about/about.php">About</a></li>
 
 						<li class="services">
 
-							<a href="../services/services.php">Services</a>
+							<a href="/webpages/services/services.php">Services</a>
 
 							<ul class="servicesDropdown">
 
@@ -73,9 +73,10 @@ session_start();
 
 						</li>
 
-						<li><a href="../getquote/getquote.php">Get a Quote</a></li>
+						<li><a href="/webpages/getquote/getquote.php">Get a Quote</a></li>
 
-						<li><a href="../contactus/contactus.php">Contact Us</a></li>
+						<li><a href="/webpages/contactus/contactus.php">Contact Us</a></li>
+				
 						<div class="accBtn">
 							<button class="accountBtn" onclick="openAccountBtnDropdown()"><img src="/resources/images/istockphoto-1161086164-170667a-removebg-preview.png" height = 75px alt="<?php
 																																													if (isset($_SESSION['customerid']) && isset($_SESSION['name'])) {
@@ -113,7 +114,7 @@ session_start();
 				<input type="email" placeholder="Enter Email Address" name="email" required>
 				<label for="password"><b>Password</b></label>
 				<input type="password" placeholder="Enter Password" name="password" required>
-				<a href="../signup/signup.php">Create an account</a>
+				<a href="../signup.php">Create an account</a>
 				<button type="submit" class="submitLogin">Log in</button>
 				
 			</form>

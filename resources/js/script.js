@@ -1,9 +1,10 @@
-function accountBtnDoublePressed() {
-    if (document.getElementById("loginPopUpID").style.display == "block") {
-        document.getElementById("loginPopUpID").style.display = "none"
-    } else {
-        document.getElementById("loginPopUpID").style.display = "block"
-    }
+
+function openLoginPopup() {
+  if (document.getElementById("loginPopUpID").style.display == "block") {
+      document.getElementById("loginPopUpID").style.display = "none"
+  } else {
+      document.getElementById("loginPopUpID").style.display = "block"
+  }
 }
 
 
@@ -12,7 +13,13 @@ function closeLoginBtnPressed() {
 }
 
 
-
+function openAccountBtnDropdown() {
+  if (document.getElementById("accountBtnDropdownID").style.display == "block") {
+    document.getElementById("accountBtnDropdownID").style.display = "none"
+} else {
+    document.getElementById("accountBtnDropdownID").style.display = "block"
+}
+}
 function showPassword() {
     var x = document.getElementById("password");
     if (x.type === "password") {

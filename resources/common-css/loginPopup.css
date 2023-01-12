@@ -37,7 +37,7 @@
   }
 
   .loginClass .submitLogin {
-    background-color: #2c2c2b;
+    background-color: #2c2c2b !important;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -59,7 +59,7 @@
   }
 
   .closeLogin:hover {
-    background-color: red;
+    background-color: red !important;
     transition-duration: 0.3s;
     
   }

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include('config.php');
 
 $email = filter_input(INPUT_POST, 'email');
@@ -23,29 +25,30 @@ $row = $result->fetch_assoc();
 if ($result->num_rows == 1) {
     $hash = $row['password'];
     if (password_verify($password, $hash)) {
-        session_start();
-        echo "Logged in successfully!";
+        echo '<script>alert("Logged in successfully.")</script>';
+        $time = date('Y-m-d H:i:s');
+        $customerId = $row['customerid'];
+        $_SESSION['loggedIn'] = true;
         $_SESSION['customerid'] = $row['customerid'];
         $_SESSION['name'] = $row['firstName'] . $row['lastName'];
         $_SESSION['dateOfBirth'] = $row['dateOfBirth'];
         $_SESSION['gender'] = $row['gender'];
         $_SESSION['email'] = $email;
         $_SESSION['mobileNumber'] = $row['mobileNumber'];
+        $loginQuery = "UPDATE customerDetails SET lastLogin = '$time' WHERE email = '$email' AND customerid = '$customerId'";
+        header("location:/index.php");
     } else {
-        echo "Invalid email or password.";
+        echo '<script>alert("Invalid email or password!")</script>';
+        
     }
-} else {
-	echo "Invalid email or password.";
-}
-
-$customerId = $row['customer id'];
-
-if (password_needs_rehash($hash, PASSWORD_DEFAULT)) {
     $rehash = password_hash($password, PASSWORD_DEFAULT);
-    $rehashQuery = "UPDATE customerDetails SET password = '$rehash' WHERE email = '$email' AND customerid = '$customerId'";
+    $rehashQuery = "UPDATE customerDetails SET password = '$rehash' WHERE email = '$email'";
+} else {
+	echo '<script>alert("Invalid email or password!")</script>';
 }
-
 $stmt->close();
 $connection->close();
+
+exit();
 
 ?>

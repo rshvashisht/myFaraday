@@ -31,6 +31,7 @@ CREATE TABLE `customerdetails` (
   `email` varchar(100) NOT NULL,
   `mobileNumber` bigint NOT NULL,
   `password` varchar(255) NOT NULL,
+  'lastLogin' timestamp,
   PRIMARY KEY (`customer id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
