@@ -1,0 +1,31 @@
+/* UTILITIES */
+
+* {
+
+     margin: 0;
+    
+     padding: 0;
+    
+     box-sizing: border-box;
+    
+    }
+    
+    body {
+
+     background-color: #2c2c2b;
+    
+     font-family:Arial, Helvetica, sans-serif;
+    
+    }
+    
+    a {
+    
+     text-decoration: none;
+    
+    }
+    
+    li {
+    
+     list-style: none;
+    
+    }

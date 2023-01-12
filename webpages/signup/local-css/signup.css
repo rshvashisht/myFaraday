@@ -1,0 +1,41 @@
+.signUpForm {
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    max-width: 1000px;
+    color: white;
+}
+
+.signUpForm b {
+    font-family: 'Noto Serif Toto', serif;
+    color: snow;
+}
+
+.signUpForm input[type=text], .signUpForm input[type=date], .signUpForm input[type=tel], .signUpForm input[type=email], .signUpForm input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: rgb(187, 185, 185);
+  }
+
+  .signUpForm input[type=text]:focus, .signUpForm input[type=date]:focus, .signUpForm input[type=tel]:focus, .signUpForm input[type=email]:focus, .signUpForm input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .signUpForm .submitSignUp {
+    background-color: #000000;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    font-size: 20px;
+  }
+
+  .signUpForm .submitSignUp:hover {
+    opacity: 1;
+  }
