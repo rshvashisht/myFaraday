@@ -77,33 +77,30 @@ session_start();
 						<li><a href="webpages/contactus/contactus.php">Contact Us</a></li>
 						
 						<div class="accBtn">
-						<button class="accountBtn" onclick="openAccountBtnDropdown()"><img src="resources/images/istockphoto-1161086164-170667a-removebg-preview.png" height = 75px alt="<?php
-																																												if (isset($_SESSION['customerid']) && isset($_SESSION['name'])) {
-																																												echo 'manage your account';
-																																												} else {
-																																												echo 'log in or sign up';
-																																												}
-																																												?>"></button>
-						<ul class="accountBtnDropdown" id="accountBtnDropdownID">
-						<?php
-						if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
-							echo '<h2>Welcome back, ' . $_SESSION['name'] . '!</h2>' .
-								 '<li><a href="/">Dropdown 1</a></li> 
-								  <li><a href="/">Dropdown 2</a></li> 
-								  <li><a href="/">Dropdown 3</a></li> 
-								  <li><a href="/resources/php/logout.php">Log Out</a></li>';
-						} else {
-							echo '<li><button class="logInButton" onclick="openLoginPopup()"><b>Log In</b></button></li>
-								  <li><a href="/webpages/signup/signup.php"><b>Sign Up</b></a></li>';
-						}
-						?>
-						 </ul>
+							<button class="accountBtn" onclick="openAccountBtnDropdown()"><img src="resources/images/istockphoto-1161086164-170667a-removebg-preview.png" height = 75px alt="<?php
+																																													if (isset($_SESSION['customerid']) && isset($_SESSION['name'])) {
+																																													echo 'manage your account';
+																																													} else {
+																																													echo 'log in or sign up';
+																																													}
+																																													?>"></button>
+							<ul class="accountBtnDropdown" id="accountBtnDropdownID">
+								<?php
+								if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+									echo '<h2>Welcome back, ' . $_SESSION['name'] . '!</h2>' .
+									 	 '<li><a href="/">Dropdown 1</a></li> 
+										  <li><a href="/">Dropdown 2</a></li> 
+										  <li><a href="/">Dropdown 3</a></li> 
+										  <li><a href="/resources/php/logout.php">Log Out</a></li>';
+								} else {
+									echo '<li><button class="logInButton" onclick="openLoginPopup()"><b>Log In</b></button></li>
+										  <li><a href="/webpages/signup/signup.php"><b>Sign Up</b></a></li>';
+								}
+								?>
+							</ul>
 						</div>	
-
 					</div>
-
 				</ul>
-				
 			</nav>
 		</div>
 

@@ -117,13 +117,13 @@ session_start();
 				<a href="../signup.php">Create an account</a>
 				<button type="submit" class="submitLogin">Log in</button>
 				
-			</form>
-			
-			
-
+			</form>			
 		</div>
 
-
+		<div class="success-message">
+    		<h1>Congratulations!</h1>
+   			<p>Your account has been created successfully.</p>
+		</div>						
 	</body>
 
 </html>

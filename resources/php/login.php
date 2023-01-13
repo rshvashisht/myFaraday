@@ -11,7 +11,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$stmt = $connection->prepare("SELECT password FROM customerDetails WHERE email = ?");
+$stmt = $connection->prepare("SELECT customerid, firstName, lastName, dateOfBirth, gender, mobileNumber, password FROM customerDetails WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 
@@ -21,29 +21,36 @@ if (!$stmt) {
 
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-
+$indexRedirect = "location:/index.php";
 if ($result->num_rows == 1) {
     $hash = $row['password'];
     if (password_verify($password, $hash)) {
-        echo '<script>alert("Logged in successfully.")</script>';
+        header($indexRedirect);
+        date_default_timezone_set("Asia/Kolkata");
         $time = date('Y-m-d H:i:s');
-        $customerId = $row['customerid'];
+        $customerid = $row['customerid'];
         $_SESSION['loggedIn'] = true;
         $_SESSION['customerid'] = $row['customerid'];
-        $_SESSION['name'] = $row['firstName'] . $row['lastName'];
+        $_SESSION['name'] = $row['firstName'] . " " . $row['lastName'];
         $_SESSION['dateOfBirth'] = $row['dateOfBirth'];
         $_SESSION['gender'] = $row['gender'];
         $_SESSION['email'] = $email;
         $_SESSION['mobileNumber'] = $row['mobileNumber'];
-        $loginQuery = "UPDATE customerDetails SET lastLogin = '$time' WHERE email = '$email' AND customerid = '$customerId'";
-        header("location:/index.php");
+        $loginQuery = $connection->prepare("UPDATE customerDetails SET lastLogin = ? WHERE email = ? AND customerid = ?");
+        $loginQuery->bind_param("ssi", $time, $email, $customerid);
+        $loginQuery->execute();
+        
     } else {
+        header($indexRedirect);
         echo '<script>alert("Invalid email or password!")</script>';
         
     }
     $rehash = password_hash($password, PASSWORD_DEFAULT);
-    $rehashQuery = "UPDATE customerDetails SET password = '$rehash' WHERE email = '$email'";
+    $rehashQuery = $connection->prepare("UPDATE customerDetails SET password = ? WHERE email = ?");
+    $rehashQuery->bind_param("ss", $rehash, $email);
+    $rehashQuery->execute();
 } else {
+    header($indexRedirect);
 	echo '<script>alert("Invalid email or password!")</script>';
 }
 $stmt->close();

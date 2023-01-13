@@ -85,7 +85,7 @@ session_start();
 																																													?>"></button>
 							<ul class="accountBtnDropdown" id="accountBtnDropdownID">
 								<?php
-								if (!empty($_SESSION['customerid'])) {
+								if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
 									echo '<h2>Welcome back, ' . $_SESSION['name'] . '!</h2>' .
 										 '<li><a href="/">Dropdown 1</a></li> 
 										  <li><a href="/">Dropdown 2</a></li> 
