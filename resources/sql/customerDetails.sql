@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `customerdetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customerdetails` (
-  `customer id` bigint NOT NULL AUTO_INCREMENT,
+  `customerid` bigint(7) unsigned zerofill NOT NULL,
   `firstName` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `dateOfBirth` date NOT NULL,
@@ -31,10 +31,16 @@ CREATE TABLE `customerdetails` (
   `email` varchar(100) NOT NULL,
   `mobileNumber` bigint NOT NULL,
   `password` varchar(255) NOT NULL,
-  'lastLogin' timestamp,
-  PRIMARY KEY (`customer id`),
+  `lastLogin` timestamp NULL DEFAULT NULL,
+  `address1` varchar(45) DEFAULT NULL,
+  `address2` varchar(45) DEFAULT NULL,
+  `state` enum('AP','AR','AS','BR','CG','GA','GJ','HR','HP','JK','JH','KA','KL','MP','MH','MN','ML','MZ','NL','OR','PB','RJ','SK','TN','TR','UK','UP','WB','AN','CH','DH','DD','DL','LD','PY') DEFAULT NULL,
+  `district` varchar(20) DEFAULT NULL,
+  `pincode` int DEFAULT NULL,
+  `profilePicture` blob,
+  PRIMARY KEY (`customerid`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -46,4 +52,4 @@ CREATE TABLE `customerdetails` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-12  1:43:19
+-- Dump completed on 2023-01-13 23:18:09
