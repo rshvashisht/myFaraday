@@ -29,10 +29,13 @@ function showPassword() {
     }
   }
 
-
-
-
-
+function enableProfileEdit(input) {
+  document.getElementById(input).disabled = false;
+  document.getElementById("submitEditBtn").style.display = "block";
+  if(input == "state") {
+    document.getElementById("statePlaceholder").disabled = true;
+  }
+} 
 
 function validatePassword(){
   var password = document.getElementById("password")
@@ -42,4 +45,14 @@ function validatePassword(){
   } else {
     confirm_password.setCustomValidity('');
   }
+}
+
+function closeConfirmEditBtnPressed() {
+  document.getElementById("editConfirmPopUpID").style.display = "none";
+
+}
+
+function openConfirmEdit() {
+  document.getElementById("editConfirmPopUpID").style.display = "block";
+ 
 }

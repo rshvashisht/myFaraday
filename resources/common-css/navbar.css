@@ -1,4 +1,3 @@
-/* NAVBAR STYLING STARTS */
 
 .navbar {
 
@@ -15,6 +14,7 @@
      color: #ffffff;
     
     }
+
     
     .nav-links a {
     
@@ -27,6 +27,8 @@
     .logo {
     
      font-size: 32px;
+
+     border-radius: 50%;
     
     }
 
@@ -106,6 +108,10 @@
      border-radius: 8px;
     
      top: 39px;
+
+     right: -35px;
+
+     left: -35px;
     
     }
     
@@ -151,28 +157,49 @@
    
    /* Dropdown Content (Hidden by Default) */
    .accountBtnDropdown {
-     display: none;
-     position:fixed;
-     background-color: black;
-     min-width: 160px;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     right: 10px;
+    background-color: rgb(1, 139, 139);
+    padding: 0.5em 0;
+    position:absolute;
+    display: none;
+    width:max-content;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    top: 100px;
+    right: 0px;
+    left:auto;
+    align-items: center;
    }
+   .accountBtnDropdown h4 {
+    background: none!important;
+    width: 100% !important;
+    color: snow;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    border: #ffffff;
+    font-weight: bold;
+    padding: 0em 1em;
+    opacity: 0.5;
+    align-self: center !important;
+  }
    
    /* Links inside the dropdown */
    .accountBtnDropdown a, button {
      background: none!important;
      width: 100%;
-     /*optional*/
      color: snow;
-     /*input has OS specific font-family*/
+     font-family:'Times New Roman', Times, serif;
      cursor: pointer;
-     padding: auto;
      border: #ffffff;
+     font-weight: bold;
+     align-self: center !important;
    }
    
    /* Change color of dropdown links on hover */
-   .accountBtnDropdown a:hover, button:hover {
+   .accountBtnDropdown a.accBtnDropdownOptions:hover, button:hover {
     background-color: #4c9e9e;
+  }
+
+  .accountBtnDropdown a.logOutBtn:hover {
+    background-color: rgb(255, 94, 94);
   }
    

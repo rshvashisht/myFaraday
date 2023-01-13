@@ -1,0 +1,120 @@
+#userProfilePic {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    border-radius: 50%;
+}
+.profileInfo {
+    position: absolute;
+    right: 350px;
+    top: 150px;
+    width: 600px;
+    color: white;
+}
+
+.profileInfo b {
+    font-family: 'Noto Serif Toto', serif;
+    color: snow;
+}
+
+.profileInfo input[type=text], .profileInfo input[type=date], .profileInfo input[type=tel], .profileInfo select, .profileInfo input[type=email], .profileInfo input[type=number], .profileInfo input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: white;
+  }
+
+  .profileInfo #reenterPass {
+    display:none;
+  }
+
+  .profileInfo input:disabled, select:disabled {
+    background: gray;
+    color: black;
+  }
+
+  .profileInfo #submitEditBtn {
+    display: none;
+    background-color: #000000 !important;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    font-size: 20px;
+  }
+
+  .profileInfo #submitEditBtn:hover {
+    opacity: 1;
+  }
+
+  .editConfirmPopUp {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 600px;
+    padding: 10px;
+    background-color: black !important;
+    border-radius: 20px;
+   }
+
+   .editConfirmPopUp h2, .editConfirmPopUp b {
+    font-family: 'Noto Serif Toto', serif;
+    color: snow;
+   }
+
+   .editConfirmPopUp h2 {
+    position: relative;
+    left: 190px
+   }
+
+   .editConfirmPopUp input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: rgb(187, 185, 185);
+  }
+
+  .editConfirmPopUp input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .editConfirmPopUp .submitEditConfirm {
+    background-color: #2c2c2b !important;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    font-size: 20px;
+  }
+
+  .closeConfirmEdit {
+    position: relative;
+    top: 5px;
+    left: 550px;
+    width: 27px;
+    border-radius: 100%;
+    color: snow;
+    background-color: black;
+  }
+
+  .closeConfirmEdit:hover {
+    background-color: red !important;
+    transition-duration: 0.3s;
+    
+  }
+  .editConfirmPasswordForm .submitEditConfirm:hover, .closeConfirmEdit:hover {
+    opacity: 1;
+  }
+
+

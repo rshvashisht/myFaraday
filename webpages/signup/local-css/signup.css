@@ -24,7 +24,7 @@
     outline: none;
   }
 
-  .signUpForm .submitSignUp {
+  .signUpForm .submitEdit {
     background-color: #000000 !important;
     color: white;
     padding: 16px 20px;
@@ -36,6 +36,6 @@
     font-size: 20px;
   }
 
-  .signUpForm .submitSignUp:hover {
+  .signUpForm .submitEdit:hover {
     opacity: 1;
   }

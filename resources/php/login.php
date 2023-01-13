@@ -11,7 +11,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$stmt = $connection->prepare("SELECT customerid, firstName, lastName, dateOfBirth, gender, mobileNumber, password FROM customerDetails WHERE email = ?");
+$stmt = $connection->prepare("SELECT customerid, firstName, lastName, dateOfBirth, gender, mobileNumber, address1, address2, state, district, pincode, password FROM customerDetails WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 
@@ -32,10 +32,17 @@ if ($result->num_rows == 1) {
         $_SESSION['loggedIn'] = true;
         $_SESSION['customerid'] = $row['customerid'];
         $_SESSION['name'] = $row['firstName'] . " " . $row['lastName'];
+        $_SESSION['firstName'] = $row['firstName'];
+        $_SESSION['lastName'] = $row['lastName'];
         $_SESSION['dateOfBirth'] = $row['dateOfBirth'];
         $_SESSION['gender'] = $row['gender'];
         $_SESSION['email'] = $email;
         $_SESSION['mobileNumber'] = $row['mobileNumber'];
+        $_SESSION['address1'] = $row['address1'];
+        $_SESSION['address2'] = $row['address2'];
+        $_SESSION['state'] = $row['state'];
+        $_SESSION['district'] = $row['district'];
+        $_SESSION['pincode'] = $row['pincode'];
         $loginQuery = $connection->prepare("UPDATE customerDetails SET lastLogin = ? WHERE email = ? AND customerid = ?");
         $loginQuery->bind_param("ssi", $time, $email, $customerid);
         $loginQuery->execute();
